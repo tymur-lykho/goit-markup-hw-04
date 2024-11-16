@@ -93,6 +93,26 @@ img {
   color: #4d5ae5;
 }
 
+.socials-list {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.social-item {
+  background-color: #4d5ae5;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.social-link {
+}
+
+.social-icon {
+  fill: #f4f4fd;
+}
 /* #endregion */
 
 /* #region Header */
@@ -100,7 +120,7 @@ img {
   border-bottom: 1px solid #e7e9fc;
 }
 
-.header > .container {
+.header-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -132,6 +152,22 @@ img {
   line-height: 1.5;
   letter-spacing: 0.02em;
   padding: 24px 0;
+  position: relative;
+}
+
+.nav-item.active::after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: -1px;
+  height: 4px;
+  width: 100%;
+  border-radius: 2px;
+  background-color: #404bbf;
+}
+
+.nav-item.active .nav-link {
+  color: #404bbf;
 }
 
 .nav-link {
@@ -154,13 +190,22 @@ img {
 /* #endregion */
 
 /* #region Hero Section */
-.hero > .container {
+.hero-container {
   display: flex;
   flex-direction: column;
 }
 
 .hero {
   background-color: #2e2f42;
+  background-image: linear-gradient(
+      rgba(46, 47, 66, 0.7),
+      rgba(46, 47, 66, 0.7)
+    ),
+    url(../images/people-office.jpg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+
   padding: 188px 0;
 }
 
@@ -209,6 +254,9 @@ img {
   background-color: #ffffff;
 }
 
+.advantages-container {
+}
+
 .advantages-title {
   position: absolute;
   width: 1px;
@@ -233,11 +281,26 @@ img {
   width: calc((100% - 3 * 24px) / 4);
 }
 
+.adventages-icon-container {
+  padding: 24px 100px;
+  width: 100%;
+  border: 1px solid #8e8f99;
+  border-radius: 4px;
+  background: #f4f4fd;
+  margin-bottom: 8px;
+}
+
+.adventages-icon {
+}
+
 /* #endregion */
 
 /* #region Team Section */
 .team {
   background-color: #f4f4fd;
+}
+
+.team-container {
 }
 
 .team-list {
@@ -252,9 +315,14 @@ img {
   border-radius: 0 0 4px 4px;
   box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08),
     0 1px 1px 0 rgba(46, 47, 66, 0.16), 0 1px 6px 0 rgba(46, 47, 66, 0.08);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.team-card-text {
+.team-card:hover .team-social,
+.team-card:focus .team-social {
+  background-color: #404bbf;
+}
+.team-card-content {
   padding: 32px 0;
 }
 
@@ -268,12 +336,28 @@ img {
 
 .team-text {
   text-align: center;
+  margin-bottom: 8px;
 }
+
+.team-socials {
+  gap: 24px;
+}
+
+.team-social {
+  padding: 12px;
+}
+
+.team-social-icon {
+}
+
 /* #endregion */
 
 /* #region Portfolio Section */
 .portfolio {
   background-color: #ffffff;
+}
+
+.portfolio-container {
 }
 
 .portfolio-list {
@@ -286,6 +370,38 @@ img {
 
 .portfolio-card {
   width: calc((100% - 2 * 24px) / 3);
+}
+
+.card-img {
+  position: relative;
+  overflow: hidden;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 40px 32px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: #f4f4fd;
+  background: #4d5ae5;
+  height: 100%;
+  width: 100%;
+  transform: translateY(100%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.portfolio-card:hover,
+.portfolio-card:focus {
+  box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08),
+    0 1px 1px 0 rgba(46, 47, 66, 0.16), 0 1px 6px 0 rgba(46, 47, 66, 0.08);
+}
+
+.portfolio-card:hover .overlay,
+.portfolio-card:focus .overlay {
+  transform: translateY(0);
 }
 
 .card-text {
@@ -311,6 +427,15 @@ img {
   padding: 100px 0;
 }
 
+.footer-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.left-wrapper {
+  margin-right: 120px;
+}
+
 .footer-logo {
   display: inline-block;
   margin-bottom: 16px;
@@ -326,4 +451,34 @@ img {
   letter-spacing: 0.02em;
   width: 264px;
 }
+
+.right-wrapper {
+}
+
+.footer-social-title {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: #fff;
+  margin-bottom: 16px;
+}
+
+.footer-socials {
+  gap: 16px;
+}
+
+.footer-social {
+  padding: 8px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.footer-social:hover,
+.footer-social:focus {
+  background-color: #31d0aa;
+}
+
+.footer-social-icon {
+}
+
 /* #endregion */
