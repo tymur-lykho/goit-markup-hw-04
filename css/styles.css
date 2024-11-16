@@ -384,12 +384,11 @@ img {
   flex-wrap: wrap;
   column-gap: 24px;
   row-gap: 48px;
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .portfolio-card {
   width: calc((100% - 2 * 24px) / 3);
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  transition-property: box-shadow;
 }
 
 .card-img {
